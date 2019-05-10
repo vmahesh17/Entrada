@@ -16,7 +16,7 @@ public class App
 
 	public static AndroidDriver<AndroidElement> driver;
 	
-	public void Capabilities() throws MalformedURLException {
+	public static  void Capabilities() throws MalformedURLException {
 	
 	DesiredCapabilities cap =new DesiredCapabilities();
 	cap.setCapability("deviceName", "98897a433352455332");
