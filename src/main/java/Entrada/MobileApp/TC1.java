@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 @Test
 public class TC1 extends Keywords {
 	
-	public void Tc1() {
+	public static void LoginApp() {
 
 		try {
 			App.Deviceselection("Emulator");
