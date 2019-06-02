@@ -13,7 +13,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>org.testng</groupId>
@@ -38,13 +38,18 @@
 			<version>4.1.1.4</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>4.1.0</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
 			<version>4.5.8</version>
 		</dependency>
-		
-
 
 		<dependency>
 			<groupId>io.appium</groupId>
@@ -52,7 +57,7 @@
 			<version>4.1.2</version>
 		</dependency>
 
-		
+
 
 
 	</dependencies>

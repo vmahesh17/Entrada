@@ -1,13 +1,19 @@
 package Entrada.MobileApp;
 
-import java.net.MalformedURLException;
+import java.io.File;
+import java.io.IOException;
+
+import java.util.UUID;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
 
 import org.testng.annotations.Test;
 
 @Test
 public class TC1 extends Keywords {
-	
-	public static void LoginApp() {
+
+	public static void LoginApp() throws IOException {
 
 		try {
 			App.Deviceselection("Emulator");
@@ -24,17 +30,27 @@ public class TC1 extends Keywords {
 			click(OK);
 
 			// directly hitting on Login and check whether its enabled or disabled
-
+			wait("2");
 			sendKeys(User_ID, "a1@yopmail.com");
-			sendKeys(Password, "10");
+			driver.hideKeyboard();
+			sendKeys(Password, "Entrada@1");
 			longPress(Login);
+			wait("2");
+
 			click(env_Qa2);
 			click(Login);
+			wait("4");
+
+			// Capturing screenshot
+			File scrFile = driver.getScreenshotAs(OutputType.FILE);
+			String Filename = UUID.randomUUID().toString();
+			File targetfile = new File("target/Screenshots/" + Filename + ".jpg");
+			FileUtils.copyFile(scrFile, targetfile);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }
