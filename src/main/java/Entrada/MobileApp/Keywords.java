@@ -2,15 +2,17 @@ package Entrada.MobileApp;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 import io.appium.java_client.TouchAction;
 
  
 
 public class Keywords extends App implements Elements {
-
+	public static String ElementWait = "5";
 	public static String[] splitXpath(String path) {
 		String[] a = path.split(">");
 		return a;
@@ -62,6 +64,21 @@ public class Keywords extends App implements Elements {
 			Assert.fail();
 		}
 		}
+	
+	public static void waitForElement(String xpath) {
+		String[] values = splitXpath(xpath);
+		try {
+			int WaitElementSeconds1 = new Integer(ElementWait);
+			WebDriverWait wait = new WebDriverWait(driver, WaitElementSeconds1);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(values[1])));
+			//ATUReports.add("Wait for the Element " + values[0], LogAs.PASSED, true, values[0]);
+		} catch (Exception e) {
+			//ATUReports.add1("Element Not Found - " + values[0], LogAs.FAILED, true, values[0]);
+			Assert.fail();
+			
+		}
+		
+	}
 
 	public static String getText(String xpath) {
 		String[] values = splitXpath(xpath);

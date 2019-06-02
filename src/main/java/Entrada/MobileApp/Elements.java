@@ -9,6 +9,8 @@ public interface Elements {
 	public String Password = ">//android.widget.EditText[@text='Password']";
 	public String Login = ">//android.widget.Button[contains(@resource-id,'com.entradahealth.entrada.android:id/loginButton')]";
 	public String env_Qa2=">//android.widget.TextView[@text = 'QA2']";
+	public String path ="C:\\Users\\Admin\\eclipse-workspace\\MobileApp\\Data\\AppData.xlsx";
+	
 	
 	
 	

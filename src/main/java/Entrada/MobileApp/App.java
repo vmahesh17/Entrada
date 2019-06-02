@@ -42,12 +42,18 @@ public class App {
 
 		else if (Device.equals("Real Device")) {
 			DesiredCapabilities cap = new DesiredCapabilities();
-			cap.setCapability("deviceName", "98897a433352455332");
+			
+			//0619826e2298e95f
+			cap.setCapability("deviceName", "0619826e2298e95f");
 			cap.setCapability("platformname", "Android");
-			cap.setCapability("platformVersion", "7.0");
-			cap.setCapability("appPackage", "com.android.chrome");
-			cap.setCapability("appActivity", "com.google.android.apps.chrome.Main");
-			cap.setCapability("fullReset", "false");
+			cap.setCapability("platformVersion", "6.0.1");
+			cap.setCapability("app", fs.getAbsolutePath());
+			cap.setCapability("appPackage", "com.entradahealth.entrada.android");
+			cap.setCapability("appActivity",
+					"com.entradahealth.entrada.android.app.personal.activities.user_select.UserSelectActivity");
+			cap.setCapability("borwserName", "Chrome");
+			cap.setCapability("fullReset", "false");		
+			
 			driver = new AndroidDriver<AndroidElement>(new URL("http://127.0.0.1:4723/wd/hub"), cap);
 			// System.out.println(driver.getPageSource());
 			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
