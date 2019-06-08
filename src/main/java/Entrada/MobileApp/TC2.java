@@ -2,16 +2,32 @@ package Entrada.MobileApp;
 
 import java.io.IOException;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+
 public class TC2 extends Keywords {
 
 	// Create Job
-	public static void main(String args[]) throws IOException {
-		TC1.LoginApp();
+	public static void Joblist() throws IOException {
 
-		System.out.println("Running App");
+		ExtentHtmlReporter reports = new ExtentHtmlReporter(
+				"C:\\Users\\Admin\\eclipse-workspace\\MobileApp\\Extent_Reports\\Report1.html");
+		ExtentReports extent = new ExtentReports();
+		extent.attachReporter(reports);
 
-		service.stop();
-		// click(OK);
+		ExtentTest logger = extent.createTest("Verifying TC2");
 
+		//TC1.EnterPIN();
+
+		// logger.log(Status.INFO, "Logged into app");
+
+		// service.stop();
+
+		logger.log(Status.WARNING, "Appium server has been stopped");
+
+		wait("3");
+		getText(JoblistTitle);
 	}
 }

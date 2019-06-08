@@ -10,6 +10,11 @@ public interface Elements {
 	public String Login = ">//android.widget.Button[contains(@resource-id,'com.entradahealth.entrada.android:id/loginButton')]";
 	public String env_Qa2=">//android.widget.TextView[@text = 'QA2']";
 	public String path ="C:\\Users\\Admin\\eclipse-workspace\\MobileApp\\Data\\AppData.xlsx";
+	public String EnterPIN=">//android.widget.EditText[@text = 'Enter PIN']";
+	
+	public String JoblistTitle="//android.widget.TextView[@text='Job List']";
+	
+	public String schedule =">//android.widget.TextView[@text='Schedule']";
 	
 	
 	

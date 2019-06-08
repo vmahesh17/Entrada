@@ -34,5 +34,6 @@
 	<classpathentry kind="lib" path="C:/poi-4.0.1/lib/jaxb-impl-2.3.0.1.jar"/>
 	<classpathentry kind="lib" path="C:/poi-4.0.1/lib/junit-4.12.jar"/>
 	<classpathentry kind="lib" path="C:/poi-4.0.1/lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

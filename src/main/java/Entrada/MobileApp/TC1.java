@@ -2,21 +2,27 @@ package Entrada.MobileApp;
 
 import java.io.File;
 import java.io.IOException;
-
+import java.net.MalformedURLException;
+import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.UUID;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 
-import org.testng.annotations.Test;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
-@Test
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidKeyCode;
+
 public class TC1 extends Keywords {
 
-	public static void LoginApp() throws IOException {
+	public static void CreatePIN_Login() throws IOException {
 
 		try {
-			App.Deviceselection("Emulator");
+			App.Deviceselection("Real Device");
 			System.out.println("test");
 			wait("3");
 			System.out.println("wait done for 30 secs");
@@ -29,7 +35,6 @@ public class TC1 extends Keywords {
 			sendKeys(Confirm_PIN, "1111");
 			click(OK);
 
-			// directly hitting on Login and check whether its enabled or disabled
 			wait("2");
 			sendKeys(User_ID, "a1@yopmail.com");
 			driver.hideKeyboard();
@@ -38,18 +43,40 @@ public class TC1 extends Keywords {
 			wait("2");
 
 			click(env_Qa2);
+			wait("2");
 			click(Login);
-			wait("4");
+			Thread.sleep(5000);
 
-			// Capturing screenshot
-			File scrFile = driver.getScreenshotAs(OutputType.FILE);
-			String Filename = UUID.randomUUID().toString();
-			File targetfile = new File("target/Screenshots/" + Filename + ".jpg");
-			FileUtils.copyFile(scrFile, targetfile);
+			click(schedule);
+			wait("2");
+
+			driver.runAppInBackground(5);
+
+			driver.currentActivity();
+			wait("2");
+			waitForElement(EnterPIN);
+
+			TC1.EnterPIN();
+			/*
+			 * // Capturing screenshot File scrFile =
+			 * driver.getScreenshotAs(OutputType.FILE); String Datepattern = "DD_MM_YY";
+			 * 
+			 * SimpleDateFormat Date = new SimpleDateFormat(Datepattern); // String Filename
+			 * = UUID.randomUUID().toString(); File targetfile = new
+			 * File("target/Screenshots/" + Date + ".jpg"); FileUtils.copyFile(scrFile,
+			 * targetfile);
+			 */
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public static void EnterPIN() throws MalformedURLException {
+		
+		// App.Deviceselection("Real Device");
+		sendKeys(EnterPIN, "1111");
+		click(OK);
 
 	}
 
