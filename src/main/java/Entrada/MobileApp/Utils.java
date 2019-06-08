@@ -1,16 +1,10 @@
 package Entrada.MobileApp;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Iterator;
-
 
 import org.apache.poi.ss.usermodel.Cell;
 
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Workbook;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -21,14 +15,12 @@ public class Utils {
 
 	public static String getData(String component) {
 		String requiredCellVal = "";
-		
-		String excellsheet ="Data1";
+
+		String excellsheet = "Data1";
 		try {
-			
-			
-			
+
 			FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "/Data/AppData.xlsx");
-			
+
 			XSSFWorkbook wb = new XSSFWorkbook(fis);
 			XSSFSheet ws = wb.getSheet(excellsheet);
 
@@ -49,7 +41,7 @@ public class Utils {
 					XSSFCell cell = row.getCell(cellIndex);
 					String cellVal = cellToString(cell);
 					if (cellVal.equals(component)) {
-						XSSFCell adjacentCell = row.getCell(cellIndex +1);
+						XSSFCell adjacentCell = row.getCell(cellIndex + 1);
 						String adjacentCellVal = cellToString(adjacentCell);
 						requiredCellVal = adjacentCellVal;
 						break;
@@ -97,6 +89,3 @@ public class Utils {
 	}
 
 }
-	
-
-
