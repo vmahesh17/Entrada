@@ -49,7 +49,7 @@ public class Utils {
 					XSSFCell cell = row.getCell(cellIndex);
 					String cellVal = cellToString(cell);
 					if (cellVal.equals(component)) {
-						XSSFCell adjacentCell = row.getCell(cellIndex + 1);
+						XSSFCell adjacentCell = row.getCell(cellIndex +1);
 						String adjacentCellVal = cellToString(adjacentCell);
 						requiredCellVal = adjacentCellVal;
 						break;

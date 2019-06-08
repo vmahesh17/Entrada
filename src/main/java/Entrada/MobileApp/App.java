@@ -53,7 +53,7 @@ public class App {
 
 			// 0619826e2298e95f - Nexus 5
 			// 98897a433352455332 Samsung S8
-			cap.setCapability("deviceName", "98897a433352455332");
+			cap.setCapability("deviceName", deviceName);
 			cap.setCapability("platformname", "Android");
 			cap.setCapability("platformVersion", "9");
 			cap.setCapability("app", fs.getAbsolutePath());
