@@ -16,13 +16,15 @@ public class Utils {
 	public static String getData(String component) {
 		String requiredCellVal = "";
 
-		String excellsheet = "Data1";
+		//String excellsheet = "Capabilities";
 		try {
 
 			FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "/Data/AppData.xlsx");
 
 			XSSFWorkbook wb = new XSSFWorkbook(fis);
-			XSSFSheet ws = wb.getSheet(excellsheet);
+			XSSFSheet ws = wb.getSheet("Capabilities");
+
+			// wb.getSheetAt(0/1/2);
 
 			int rowNum = ws.getLastRowNum() + 1;
 
@@ -60,6 +62,7 @@ public class Utils {
 	public static String cellToString(XSSFCell cell) {
 		int type;
 		String result;
+		// type = cell.getCellType();
 		type = cell.getCellType();
 
 		switch (type) {
